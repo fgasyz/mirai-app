@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1034117074764",
+    "project_id": "mirai-app-d49c9",
+    "storage_bucket": "mirai-app-d49c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034117074764:android:9eb170c8cdea44189049e9",
+        "android_client_info": {
+          "package_name": "com.example.mirai_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3JjfJQK6qvfrYygl381Rz8l6o1K8wzxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
