@@ -8,13 +8,16 @@ class SettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading:
-              IconButton(icon: const Icon(Icons.close), onPressed: () => Get.back()),
+          leading: IconButton(
+              icon: const Icon(Icons.close), onPressed: () => Get.back()),
         ),
         body: SafeArea(
             child: LayoutBuilder(
-                builder: (context, constraints) => Padding(
+                builder: (context, constraints) => Container(
                       padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                          border: Border(
+                              top: BorderSide(color: Colors.grey, width: 0.2))),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -43,10 +46,9 @@ class SettingPage extends StatelessWidget {
                                           color: Colors.amber)
                                       : const Icon(Icons.dark_mode_rounded,
                                           color: Colors.amber),
-                                  onTap: () => Get.changeTheme(
-                                      Get.isDarkMode
-                                          ? ThemeData.light()
-                                          : ThemeData.dark()),
+                                  onTap: () => Get.changeTheme(Get.isDarkMode
+                                      ? ThemeData.light()
+                                      : ThemeData.dark()),
                                 ),
                               ])),
                           const SizedBox(height: 30),

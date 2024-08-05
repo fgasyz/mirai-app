@@ -13,7 +13,9 @@ Widget manageDialog({required BuildContext context}) {
           child: Dialog(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: Get.isDarkMode
+                ? Theme.of(context).primaryColor
+                : Theme.of(context).dialogTheme.backgroundColor,
             child: Column(children: [
               Column(
                 children: [

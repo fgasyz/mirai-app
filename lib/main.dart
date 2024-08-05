@@ -9,7 +9,7 @@ import 'package:mirai_app/pages/setting_page.dart';
 import 'package:mirai_app/pages/show_diary_page.dart';
 import 'package:mirai_app/pages/splash_page.dart';
 import 'firebase_options.dart';
-
+  
 void main() async {
   runApp(const MyApp());
   try {
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: '/splash', page: () => const SplashPage()),
         GetPage(name: '/', page: () => HomePage()),
-        GetPage(name: '/search', page: () => const SearchPage()),
+        GetPage(name: '/search', page: () => SearchPage()),
         GetPage(name: '/calender', page: () => CalenderPage()),
         GetPage(name: '/settings', page: () => const SettingPage()),
         GetPage(name: '/diaries/add', page: () => const AddDiaryPage()),
@@ -46,3 +46,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+

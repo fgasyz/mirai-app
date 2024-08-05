@@ -8,12 +8,15 @@ class AddDiaryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading:
-            IconButton(icon: const Icon(Icons.close), onPressed: () => Get.back()),
+        leading: IconButton(
+            icon: const Icon(Icons.close), onPressed: () => Get.back()),
       ),
       body: SafeArea(
           child: LayoutBuilder(
               builder: (context, constraints) => Container(
+                    decoration: BoxDecoration(
+                        border: Border(
+                            top: BorderSide(color: Colors.grey, width: 0.2))),
                     padding: const EdgeInsets.all(15),
                     child: Column(children: [
                       Row(

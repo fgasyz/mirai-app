@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mirai_app/components/diary_card.dart';
+import '../layouts/vertical_diary_card.dart';
+import 'package:mirai_app/controllers/widget/vertical_scroll_controller.dart';
 import '../layouts/custom_drawer.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
-
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey<ScaffoldState>();
-
+  final VerticalScrollController scrollController =
+      Get.put(VerticalScrollController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,30 +33,32 @@ class HomePage extends StatelessWidget {
       ),
       body: SafeArea(child: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-        return diaryCard(context: context, constraints: constraints);
+        return VerticalDiaryCard(context: context, constraints: constraints);
       })),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            FloatingActionButton.small(
-                shape: const CircleBorder(),
-                heroTag: '1',
-                onPressed: () {
-                  Get.toNamed('/calender');
-                },
-                child: const Icon(EvaIcons.calendar_outline)),
-            FloatingActionButton(
-                shape: const CircleBorder(),
-                heroTag: '2',
-                onPressed: () {
-                  Get.toNamed('/diaries/add');
-                },
-                child: const Icon(Icons.add))
-          ],
-        ),
-      ),
+      floatingActionButton: Obx(() => scrollController.isScrolling.value
+          ? Container()
+          : Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  FloatingActionButton.small(
+                      shape: const CircleBorder(),
+                      heroTag: '1',
+                      onPressed: () {
+                        Get.toNamed('/calender');
+                      },
+                      child: const Icon(EvaIcons.calendar_outline)),
+                  FloatingActionButton(
+                      shape: const CircleBorder(),
+                      heroTag: '2',
+                      onPressed: () {
+                        Get.toNamed('/diaries/add');
+                      },
+                      child: const Icon(Icons.add))
+                ],
+              ),
+            )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
